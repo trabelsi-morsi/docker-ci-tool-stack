@@ -9,6 +9,8 @@ MAINTAINER Marcel Birkner <marcel.birkner@codecentric.de>
 ENV SONATYPE_WORK /sonatype-work
 ENV NEXUS_VERSION 2.14.1-01
 ENV NEXUS_HOME /opt/sonatype/nexus/
+RUN echo "nameserver 8.8.8.8" >> /etc/resolv.conf
+RUN echo "nameserver 8.8.4.4" >> /etc/resolv.conf
 
 RUN INSTALL_PKGS="java-1.8.0-openjdk.x86_64" && \
     yum -y --setopt=tsflags=nodocs install $INSTALL_PKGS && \
